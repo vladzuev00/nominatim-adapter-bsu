@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:11.1:///integration-tests-db
+  jpa:
+    hibernate:
+      ddl-auto: none
+      properties:
+        hibernate:
+          generate_statistics: true
+          jdbc:
+            batch_size: 10
+          dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    show-sql: true
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+  sql:
+    init:
+      mode: always
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  liquibase:
+    changeLog: classpath:db/db.changelog-master.yaml
+
+search-cities:
+  amount-handled-points-to-save-state: 2
+
+server:
+  servlet:
+    context-path: /nominatim
+
+nominatim:
+  millis-between-requests: 1000
+
+search-mileage:
+  load-city-geometries-on-start-application: false
+
+

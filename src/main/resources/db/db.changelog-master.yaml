@@ -1,0 +1,18 @@
+databaseChangeLog:
+    - changeSet:
+        id: 1.0
+        author: Vlad Zuev
+        changes:
+            - sqlFile:
+                dbms: postgresql
+                encoding: utf8
+                endDelimiter: \n/\s*\n|\n/\s*$
+                path: changelog/scripts/1.0.sql
+                relativeToChangelogFile: true
+                splitStatements: true
+                stripComments: true
+
+
+
+
+
